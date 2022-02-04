@@ -1,0 +1,345 @@
+@import "https://fonts.googleapis.com/css?family=Monoton";
+@import "https://fonts.googleapis.com/css?family=Press+Start+2P";
+@import "https://fonts.googleapis.com/css?family=Mr+Dafoe";
+@import "https://fonts.googleapis.com/css?family=Changa+One";
+* {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  /*
+    Introduced in Internet Explorer 10.
+    See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+  */
+  -ms-user-select: none;
+}
+body {
+  background: #000;
+  background-image: linear-gradient(to bottom, #6a0275 10%, #040c4a 60%);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.btn {
+  z-index: 600;
+  text-decoration: none;
+  display: inline-block;
+
+  user-select: none;
+  height: 50px;
+  cursor: pointer;
+  font-size: 1.5em;
+  background-color: #444;
+  text-align: center;
+  color: #efe0df;
+  padding: 15px 10px;
+  font-family: Monoton;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: solid 2px #4a4a4a;
+  box-shadow: inset 1px 1px 5px #444, 1px 1px 3px #444, 2px 2px 1px #111,
+    -1px -1px 3px #444, 2px 2px 4px #111;
+}
+.m-logo {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 501;
+}
+.m-logo__wrap {
+  transform: scale(0);
+  text-align: center;
+}
+.m-logo h1 {
+  font-family: "Press start 2p", sans-serif;
+  font-size: 62px;
+  letter-spacing: -4px;
+  font-weight: 400;
+  margin: 0 0 0.25em;
+  line-height: 1.25;
+  background-image: -webkit-linear-gradient(
+    top,
+    #3fa8c6 0%,
+    #3fa8c6 0%,
+    #ff9ab2 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.m-logo .subtitle {
+  color: #ec008c;
+  font-size: 50px;
+  margin: 0;
+  font-family: "Mr Dafoe", serif;
+  text-shadow: 0px 1x 0px #530031;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  min-height: 400px;
+  overflow: hidden;
+  filter: blur(1px);
+}
+.wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(transparent 70%, rgba(0, 0, 0, 0.5) 30%);
+  background-size: 3px 3px;
+  z-index: 601;
+  pointer-events: none;
+}
+
+.m-grid {
+  position: absolute;
+  top: 50%;
+  margin-top: -75vh;
+  left: 50%;
+  margin-left: -100vw;
+  width: 200vw;
+  height: 150vh;
+  transform: scaleY(0);
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(236, 0, 140, 0.5) 25%,
+      rgba(236, 0, 140, 0.9) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(236, 0, 140, 0.5) 75%,
+      rgba(236, 0, 140, 0.9) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(236, 0, 140, 0.75) 25%,
+      rgba(236, 0, 140, 0.25) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(236, 0, 140, 0.75) 75%,
+      rgba(236, 0, 140, 0.25) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 50px 50px;
+}
+.m-grid.is-animating {
+  -webkit-animation: fly 1s linear;
+  animation: fly 1s linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes fly {
+  0% {
+    transform: perspective(300px) rotateX(80deg) translateY(0%);
+  }
+  100% {
+    transform: perspective(300px) rotateX(80deg) translateY(50px);
+  }
+}
+
+@keyframes fly {
+  0% {
+    transform: perspective(300px) rotateX(80deg) translateY(0%);
+  }
+  100% {
+    transform: perspective(300px) rotateX(80deg) translateY(50px);
+  }
+}
+.section {
+  height: 100vh;
+  width: 100vw;
+}
+.nonActive {
+  display: none;
+}
+.active {
+  display: flex;
+}
+#showcase1 {
+  display: none;
+}
+#showcase2 {
+  display: none;
+}
+
+#showcase1.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#showcase2.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+.setupcontainer {
+  display: flex;
+  width: 40%;
+  justify-content: space-around;
+}
+.m-logo-setup {
+  font-family: "Press start 2p", sans-serif;
+  font-size: 2.5em;
+  letter-spacing: -4px;
+  font-weight: 400;
+  margin: 0 0 0.25em;
+  line-height: 1.25;
+  background-image: -webkit-linear-gradient(
+    top,
+    #3fa8c6 0%,
+    #3fa8c6 0%,
+    #ff9ab2 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card:hover {
+  box-shadow: inset 0px 0px 0px 10px #ee2f91;
+  cursor: pointer;
+}
+#grid {
+  grid-gap: 2rem;
+  height: 50%;
+  /* background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 0.698) 8%,
+    rgba(84, 10, 70, 0.746) 64%
+  ); */
+  margin: 5% 10%;
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(9, 1fr);
+  perspective: 800px;
+}
+.card {
+  margin: 3px;
+  display: inline-block;
+  width: 150px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  /* transition: all 800ms ease-in-out; */
+  box-shadow: rgba(84, 10, 70, 0.746) 0 5px 15px;
+}
+/* .face,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  pointer-events: none;
+}
+.back {
+  background: #ee2f91;
+} */
+/* .toggleCard {
+  transform: rotateY(180deg);
+  animation: toggleCardRotate 800ms ease-in-out;
+}
+
+@keyframes toggleCardRotate {
+  50% {
+    transform: rotateY(90deg);
+    background: none;
+  }
+  100% {
+    transform: rotateY(90deg);
+  }
+} */
+#time,
+#scores {
+  cursor: none;
+}
+.background {
+  background: -webkit-linear-gradient(
+    top,
+    #3fa8c6 0%,
+    #3fa8c6 0%,
+    #ff9ab2 100%
+  ) !important;
+}
+.backgroundFound {
+  background: none !important;
+}
+.flipped {
+  pointer-events: none;
+}
+.settled {
+  box-shadow: rgba(6, 180, 87, 0.746) 5px 15px 25px;
+}
+.nopointer {
+  pointer-events: none;
+}
+#start {
+  margin-top: 60px;
+}
+
+.showcase3 {
+  background: 100% cover/ no-repeat url(../src/Media/img/gamewon.jpg);
+}
+
+.figCap {
+  background: rgba(6, 180, 87, 0.746) 5px 15px 25px;
+  font-family: Changa + one;
+  color: -webkit-linear-gradient(top, #3fa8c6 0%, #3fa8c6 0%, #ff9ab2 100%);
+}
+.m-grid-fixed {
+  /* transform: rotateX(75);
+  transform: rotateY(0%); */
+  position: absolute;
+  top: 50%;
+  margin-top: -75vh;
+  left: 50%;
+  margin-left: -100vw;
+  width: 200vw;
+  height: 150vh;
+  transform: scaleY(100);
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(236, 0, 140, 0.5) 25%,
+      rgba(236, 0, 140, 0.9) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(236, 0, 140, 0.5) 75%,
+      rgba(236, 0, 140, 0.9) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      rgba(236, 0, 140, 0.75) 25%,
+      rgba(236, 0, 140, 0.25) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(236, 0, 140, 0.75) 75%,
+      rgba(236, 0, 140, 0.25) 76%,
+      transparent 77%,
+      transparent
+    );
+
+  background-size: 50px 50px;
+}
+.activeContainer {
+  z-index: 500;
+}
+.gameInfo {
+  float: right;
+}
